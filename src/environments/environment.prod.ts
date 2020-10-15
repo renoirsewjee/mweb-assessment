@@ -1,3 +1,6 @@
 export const environment = {
-  production: true
+  production: true,
+  api: {
+    base: 'https://apigw.mweb.co.za/prod/baas/proxy/marketing',
+  },
 };
