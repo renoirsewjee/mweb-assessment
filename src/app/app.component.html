@@ -1,1 +1,38 @@
-<p *ngFor="let code of campaignCodes"></p>
+<form [formGroup]="fibreForm">
+  <p>Select fibre campaign</p>
+  <p>
+    <ng-container *ngFor="let item of campaignCodes">
+      <input type="radio" [value]="item.code" formControlName="campaignType" />
+      {{ item.label }}
+    </ng-container>
+  </p>
+  <p>Fibre Providers</p>
+  <p>
+    <ng-container *ngFor="let provider of providers">
+      <input
+        type="checkbox"
+        [name]="provider"
+        [value]="provider"
+        (change)="selectProvider(provider)"
+        formControlName="providersList"
+      />
+      {{ provider }}
+    </ng-container>
+  </p>
+  <p>Price Ranges</p>
+  <p>
+    <ng-container *ngFor="let price of priceRange">
+      <input
+        type="checkbox"
+        [value]="price"
+        formControlName="priceRanges"
+        (change)="selectPrice(price)"
+      />
+      {{ price.label }}
+    </ng-container>
+  </p>
+</form>
+
+<p *ngFor="let product of products">
+  {{ product.productName }} <b>R{{ product.productRate }}</b>
+</p>
